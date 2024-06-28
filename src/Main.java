@@ -3,8 +3,8 @@
 public class Main {
     public static void main(String[] args) {
 
-        CambioMoneda cambio = new CambioMoneda();
-        MenuOpciones menu = new MenuOpciones(cambio);
+        CambioMonedaData data = new CambioMonedaData();
+        MenuOpciones menu = new MenuOpciones(data);
         System.out.printf("Hello and welcome!");
 
 

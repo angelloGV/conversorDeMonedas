@@ -1,11 +1,11 @@
 public class MenuOpciones {
 
-    private CambioMoneda m_cambio;
+    private CambioMonedaData m_cambio;
 
-    public  MenuOpciones (CambioMoneda cambio)
+    public  MenuOpciones (CambioMonedaData cambio)
     {m_cambio = cambio;}
 
-    public void mostrarCambioDeMoneda(CambioMoneda moneda)
+    public void mostrarCambioDeMoneda(CambioMonedaData moneda)
     {
         for (int i = 1; i < 10 ; i++) {
 
