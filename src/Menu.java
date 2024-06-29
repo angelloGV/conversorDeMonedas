@@ -25,7 +25,7 @@ public class Menu {
         Scanner scanner = new Scanner(System.in);
 
         int monedaActual = 0;
-        while(monedaActual != 0)
+        while(monedaActual == 0)
         {
             System.out.println("*****************************");
             System.out.println("Ingrese la moneda actual, segun la norma ISO 4217 ");
@@ -41,56 +41,47 @@ public class Menu {
             }
 
         }
-        int montoValido = 0;
-        while(montoValido != 0)
-        {
+        while (true) {
             System.out.println("*****************************");
-            System.out.println("Ingrese el monto");
-            if(scanner.hasNextDouble())
-            {
-                double montoByUser = scanner.nextDouble();
-                if(montoByUser >= 0)
-                {
+            System.out.println("Ingrese el monto:");
+            String input = scanner.nextLine(); // Leer la entrada como String
+            try {
+                double montoByUser = Double.parseDouble(input);
+                if (montoByUser >= 0) {
                     m_montoActual = montoByUser;
-                    montoValido = 1;
+                    break;
+                } else {
+                    System.out.println("Monto inválido, intente de nuevo.");
                 }
-                else {
-                    System.out.println("Monto invalido, intente de nuevo.");
-                }
+            } catch (NumberFormatException e) {
+                System.out.println("Por favor, ingrese un número válido.");
             }
-            if(scanner.hasNextInt())
-            {
-                int montoByUser = scanner.nextInt();
-                if(montoByUser >=0 )
-                {
-                    m_montoActual = (double)montoByUser;
-                    montoValido = 1;
-                }
-                else
-                {
-                    System.out.println("Monto invalido, intente de nuevo.");
-                }
-            }
-
         }
 
         int monedaACambiar = 0;
-        while(monedaACambiar != 0)
+        while(monedaACambiar == 0)
         {
             System.out.println("*****************************");
             System.out.println("Escoja la moneda a cambiar, segun la norma ISO 4217 ");
 
             for(String currentKey :  data.keySet())
             {
-                System.out.println(data.get(currentKey) + "\n");
+                System.out.println(currentKey+" ");
             }
-        }
+
             String monedaCambio  = scanner.nextLine();
             if(data.containsKey(monedaCambio))
             {
                 m_monedaACambiar = monedaCambio;
                 monedaACambiar = 1;
             }
+        }
+    }
 
+    void MostrarResultados(double MontoCambiado)
+    {
+        System.out.println("****************************");
+        System.out.println("El monto ingresado fue "+ m_montoActual +" en la moneda "+ getM_monedaActual());
+        System.out.println("El camio es de : " + MontoCambiado + " en la moneda escogida, " + getM_monedaACambiar());
     }
 }
