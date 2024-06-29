@@ -26,4 +26,9 @@ public class CambioMonedaData {
     {
        return m_data.get(moneda);
     }
+
+    public HashMap <String ,Double> obtenerData()
+    {
+        return m_data;
+    }
 }
