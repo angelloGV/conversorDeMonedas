@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         CambioMonedaData data = new CambioMonedaData();
-        MenuOpciones menu = new MenuOpciones(data);
+        Menu menu = new Menu();
         System.out.printf("Hello and welcome!");
 
 
